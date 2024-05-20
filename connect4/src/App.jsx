@@ -1,5 +1,6 @@
 import React from "react"
-import Space from "./components/Space.js"
+import Space from "./components/Space.jsx"
+import './index.css'
 
 export default function App() { 
     function setBoard(){
@@ -152,14 +153,19 @@ export default function App() {
     }
     
     return (
+      <>
         <main>
             <h1 className="title">Connect4</h1>
             <h2 className="subtitle">Four tiles in a row wins!</h2>
             <div className="background">
                 {displaySpaces}
             </div>
-            {gameEnd && <button className= "newGame" onClick={resetGame}>New Game</button>}
-            {!gameEnd && <button className= "resetGame" onClick={resetGame}>Reset Game</button>}
+            {!gameEnd ? <button className= "resetGame" onClick={resetGame}>Reset Game</button>
+            : <button className = "invisible"></button>}
         </main>
+        <div>
+          {gameEnd && <button className= "newGame" onClick={resetGame}>New Game</button>}
+        </div>
+      </>
     )
 }

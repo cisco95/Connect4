@@ -1,0 +1,189 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arvo, sans-serif;
+  /* padding: 20px; */
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  /* font-size: 5rem; */
+  margin-bottom: 0;
+}
+
+.subtitle{
+  margin-top: 0;
+  margin-bottom: 3em;
+}
+
+main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.background {
+  background-color: hsl(248, 100%, 60.4%);
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 10px 10px 45px;
+}
+
+.space {
+  /* height: 8vw; */
+  width: 8vh;
+  aspect-ratio: 1 / 1;
+  margin: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  min-width: 6vh;
+  min-height: 6vh;
+  max-width: 10vw;
+  max-height: 10vw;
+
+}
+
+button {
+  font-family: Arvo, sans-serif;
+}
+
+button.newGame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* position: relative;
+  top: -12em; */
+  background-color: hsl(244, 100%, 24%);
+  border: black solid 2px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 2rem;
+  color: whitesmoke;
+  padding: 1em;
+  margin-left: -3.9em;
+}
+
+button.newGame:hover{
+  background-color: hsl(244, 100%, 50.4%);
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  transition-duration: 0.2s;
+}
+
+button.newGame:active { 
+  transform: scale(0.98); 
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); 
+} 
+
+button.resetGame {
+  position: relative;
+  top: -2em;
+  left: 10em;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+
+button.resetGame:hover{
+  background-color: hsl(248, 100%, 60.4%);
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  transition-duration: 0.2s;
+}
+
+button.resetGame:active { 
+  transform: scale(0.98); 
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); 
+} 
+
+button.resetGame:active{
+  outline: none;
+  box-shadow: none;
+}
+
+button.invisible {
+  border: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+@media only screen and (min-width: 760px) and (max-width: 1600px){
+  .title {
+    font-size: 10vw;
+  }
+}
+
+@media only screen and (min-width: 1600px){
+  .title {
+    font-size: 10em;
+  }
+}
+
+@media only screen and (max-height: 700px){
+  .title {
+    font-size: 10vh;
+  }
+}
+
+@media only screen and (max-height: 500px){
+  .title {
+    font-size: 2em;
+  }
+  .subtitle {
+    margin: 0;
+    padding: 0;
+  }
+  .space {
+    width: 2vh;
+    height: 2vh;
+  }
+  button.resetGame {
+    left: 0vw;
+  }
+}
+
+@media only screen and (max-height: 300px){
+  .title {
+    font-size: 2rem;;
+  }
+  .subtitle {
+    margin: 0;
+    padding: 0;
+  }
+  .space {
+    width: 1em;
+    height: 1em;
+  }
+  button.resetGame {
+    left: 0vw;
+  }
+}
+
+@media only screen and (max-height: 700px) and (max-width: 700px){
+  .title {
+    font-size: 2rem;
+  }
+  .subtitle {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+
+  button.resetGame {
+    left: 0vw;
+  }
+}
