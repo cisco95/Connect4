@@ -5,30 +5,26 @@
 body {
   margin: 0;
   font-family: Arvo, sans-serif;
-  /* padding: 20px; */
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* height: 100vh; */
+  /* width: 100vw; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
 .title {
-  /* font-size: 5rem; */
   margin-bottom: 0;
 }
 
 .subtitle{
   margin-top: 0;
-  margin-bottom: 3em;
 }
 
 main {
-  height: 100vh;
+  /* height: 100vh; */
   width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -40,16 +36,15 @@ main {
 }
 
 .space {
-  /* height: 8vw; */
   width: 8vh;
   aspect-ratio: 1 / 1;
   margin: 5px;
   border-radius: 50%;
   cursor: pointer;
-  min-width: 6vh;
+  /* min-width: 6vh;
   min-height: 6vh;
   max-width: 10vw;
-  max-height: 10vw;
+  max-height: 10vw; */
 
 }
 
@@ -61,8 +56,6 @@ button.newGame {
   position: absolute;
   top: 50%;
   left: 50%;
-  /* position: relative;
-  top: -12em; */
   background-color: hsl(244, 100%, 24%);
   border: black solid 2px;
   border-radius: 20px;
