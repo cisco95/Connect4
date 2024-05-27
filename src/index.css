@@ -5,11 +5,8 @@
 body {
   margin: 0;
   font-family: Arvo, sans-serif;
-  /* height: 100vh; */
-  /* width: 100vw; */
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
+  width: 100vw;
+  height: 100vh;
 }
 
 .title {
@@ -21,31 +18,27 @@ body {
 }
 
 main {
-  /* height: 100vh; */
   width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .background {
   background-color: hsl(248, 100%, 60.4%);
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  padding: 10px 10px 45px;
+  width: 90%;
+  padding: 10px 10px 60px;
 }
 
 .space {
-  width: 8vh;
   aspect-ratio: 1 / 1;
-  margin: 5px;
+  margin: .5vw;
   border-radius: 50%;
   cursor: pointer;
-  /* min-width: 6vh;
-  min-height: 6vh;
-  max-width: 10vw;
-  max-height: 10vw; */
-
 }
 
 button {
@@ -80,11 +73,15 @@ button.newGame:active {
 
 button.resetGame {
   position: relative;
-  top: -2em;
-  left: 10em;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: flex-start; */
+  top: -4em;
+  /* left: 10em; */
   background-color: transparent;
   border: none;
   cursor: pointer;
+  height: 3vh;
 }
 
 
@@ -104,12 +101,15 @@ button.resetGame:active{
   box-shadow: none;
 }
 
+button.invisible:hover {
+  background-color: transparent;
+  box-shadow: none;
+}
+
 button.invisible {
-  border: none;
-  width: 0;
-  height: 0;
-  margin: 0;
-  padding: 0;
+  color: transparent;
+  cursor: none;
+  height: 3vh;
 }
 
 
