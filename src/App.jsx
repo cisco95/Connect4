@@ -161,11 +161,9 @@ export default function App() {
                 {displaySpaces}
             </div>
             {!gameEnd ? <button className= "resetGame" onClick={resetGame}>Reset Game</button>
-            : <button className = "invisible"></button>}
+            : <button className = "resetGame invisible"></button>}
         </main>
-        <div>
-          {gameEnd && <button className= "newGame" onClick={resetGame}>New Game</button>}
-        </div>
+        {gameEnd && <button className= "newGame" onClick={resetGame}>New Game</button>}
       </>
     )
 }
