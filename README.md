@@ -5,7 +5,10 @@ Play a classic game of Connect4
 
 
   
-##  TODO:  
+##  TODO: 
+### Current: 
+- Fix CSS, issues with responsiveness (specifically on mobile devices)
+
 ### Features: 
 -  Score Keeping (local)
 -  Play over internet. 
