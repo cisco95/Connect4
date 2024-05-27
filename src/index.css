@@ -180,3 +180,20 @@ button.invisible {
     left: 0vw;
   }
 }
+
+
+.score {
+  position: absolute;
+  bottom: 3.5em;
+  left: 36%;
+  font-size: 1.5rem;
+}
+
+.red {
+  color: red;
+}
+
+.black {
+  color: black;
+  left: 42%;
+}

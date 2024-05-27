@@ -1,5 +1,6 @@
 import React from "react"
 import Space from "./components/Space.jsx"
+import Score from "./components/Score.jsx"
 import './index.css'
 
 export default function App() { 
@@ -33,6 +34,10 @@ export default function App() {
     const [boardState, setBoardState] = React.useState(setter)
     const [turnState, setTurnState] = React.useState(true)
     const [gameEnd, setGameEnd] = React.useState(false)
+    const [score, setScore] = React.useState({
+        "red": 0,
+        "black": 0
+    })
     
     localStorage.setItem("board", JSON.stringify(boardState))
     // localStorage.clear();
@@ -55,18 +60,30 @@ export default function App() {
                 if (checkDiagLeft(i)){
                     console.log(`${boardState[i].value} Wins!`)
                     setGameEnd(true);
+                    boardState[i].value =="🔴" 
+                        ? setScore((prevScore)=>({...prevScore, red: prevScore.red + 1}))
+                        : setScore((prevScore)=>({...prevScore, black: prevScore.black + 1}));
                     return true;
                 } else if (checkHorizontal(i)){
                     console.log(`${boardState[i].value} Wins!`)
                     setGameEnd(true);
+                    boardState[i].value =="🔴" 
+                        ? setScore((prevScore)=>({...prevScore, red: prevScore.red + 1}))
+                        : setScore((prevScore)=>({...prevScore, black: prevScore.black + 1}));
                     return true;
                 } else if (checkDiagRight(i)){
                     console.log(`${boardState[i].value} Wins!`)
                     setGameEnd(true);
+                    boardState[i].value =="🔴" 
+                        ? setScore((prevScore)=>({...prevScore, red: prevScore.red + 1}))
+                        : setScore((prevScore)=>({...prevScore, black: prevScore.black + 1}));
                     return true;
                 } else if (checkVert(i)){
                     console.log(`${boardState[i].value} Wins!`)
                     setGameEnd(true);
+                    boardState[i].value =="🔴" 
+                        ? setScore((prevScore)=>({...prevScore, red: prevScore.red + 1}))
+                        : setScore((prevScore)=>({...prevScore, black: prevScore.black + 1}));
                     return true;
                 }
             }
@@ -164,7 +181,9 @@ export default function App() {
             : <button className = "invisible"></button>}
         </main>
         <div>
-          {gameEnd && <button className= "newGame" onClick={resetGame}>New Game</button>}
+            <Score score = {score.red} color="red"/>
+            <Score score = {score.black} color="black"/>
+            {gameEnd && <button className= "newGame" onClick={resetGame}>New Game</button>}
         </div>
       </>
     )
