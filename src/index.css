@@ -8,22 +8,31 @@ body {
   width: 100vw;
   height: 100vh;
 }
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .title {
   margin-bottom: 0;
+  text-align: center;
 }
 
 .subtitle{
   margin-top: 0;
+  text-align: center;
 }
 
 main {
-  width: 100vw;
+  width: 70vw;
   height: 100vh;
+  max-width: 50em;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .background {
@@ -71,17 +80,61 @@ button.newGame:active {
   box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); 
 } 
 
-button.resetGame {
+
+.lower-bar {
+  width : 100%;
   position: relative;
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: flex-start; */
-  top: -4em;
-  /* left: 10em; */
+  display: flex;
+  align-items: center;
+  border: 2px solid green;
+  bottom: 3em;
+}
+
+.gameDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 90%
+
+}
+
+.scores {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 50%;
+}
+
+.score {
+  font-size: 3.5vw;
+}
+
+.red {
+  color: red;
+}
+
+.black {
+  color: black;
+  /* left: 42%; */
+}
+
+.resetGameBox {
+  width: 100;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  border: 1px solid black;
+}
+
+
+button.resetGame {
+  display: block;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  height: 3vh;
 }
 
 
@@ -112,88 +165,13 @@ button.invisible {
   height: 3vh;
 }
 
-
-
-@media only screen and (min-width: 760px) and (max-width: 1600px){
-  .title {
-    font-size: 10vw;
-  }
-}
-
-@media only screen and (min-width: 1600px){
-  .title {
-    font-size: 10em;
-  }
-}
-
-@media only screen and (max-height: 700px){
-  .title {
-    font-size: 10vh;
-  }
-}
-
-@media only screen and (max-height: 500px){
-  .title {
-    font-size: 2em;
-  }
-  .subtitle {
-    margin: 0;
-    padding: 0;
-  }
-  .space {
-    width: 2vh;
-    height: 2vh;
-  }
-  button.resetGame {
-    left: 0vw;
-  }
-}
-
-@media only screen and (max-height: 300px){
-  .title {
-    font-size: 2rem;;
-  }
-  .subtitle {
-    margin: 0;
-    padding: 0;
-  }
-  .space {
-    width: 1em;
-    height: 1em;
-  }
-  button.resetGame {
-    left: 0vw;
-  }
-}
-
-@media only screen and (max-height: 700px) and (max-width: 700px){
-  .title {
-    font-size: 2rem;
-  }
-  .subtitle {
-    margin: 0;
-    font-size: 1rem;
+@media screen and (min-width: 1000px) {
+  .score {
+     font-size: 2.2rem;
+     /* line-height: 2em; */
   }
 
-
-  button.resetGame {
-    left: 0vw;
+  button.resetGame{
+    margin: 0 auto;
   }
-}
-
-
-.score {
-  position: absolute;
-  bottom: 3.5em;
-  left: 36%;
-  font-size: 1.5rem;
-}
-
-.red {
-  color: red;
-}
-
-.black {
-  color: black;
-  left: 42%;
 }

@@ -172,19 +172,26 @@ export default function App() {
     return (
       <>
         <main>
-            <h1 className="title">Connect4</h1>
-            <h2 className="subtitle">Four tiles in a row wins!</h2>
+            <div className="hero">
+                <h1 className="title">Connect4</h1>
+                <h2 className="subtitle">Four tiles in a row wins!</h2>
+            </div>
             <div className="background">
                 {displaySpaces}
             </div>
-            {!gameEnd ? <button className= "resetGame" onClick={resetGame}>Reset Game</button>
-            : <button className = "resetGame invisible"></button>}
-        </main>
-        <div>
-            <Score score = {score.red} color="red"/>
-            <Score score = {score.black} color="black"/>
+            <section className="lower-bar">
+                <div className="gameDetails">
+                    <div className="scores">
+                        <Score score = {score.red} color="red"/>
+                        <Score score = {score.black} color="black"/>
+                    </div>
+                    <div className="resetGameBox">
+                        {!gameEnd ? <button className= "resetGame" onClick={resetGame}>Reset Game</button> : <button className = "resetGame invisible"></button>}
+                    </div>
+                </div>
+            </section>
             {gameEnd && <button className= "newGame" onClick={resetGame}>New Game</button>}
-        </div>
+        </main>
       </>
     )
 }
