@@ -7,10 +7,9 @@ Play a classic game of Connect4
   
 ##  TODO: 
 ### Current: 
-- Fix CSS, issues with responsiveness (specifically on mobile devices)
+- Refactor code, clean up state objects and tighten logic. 
 
 ### Features: 
--  Score Keeping (local)
 -  Play over internet. 
 
 ### Look and feel:
