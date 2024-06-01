@@ -22,24 +22,6 @@ export default function App() {
     })
     
     localStorage.setItem("board", JSON.stringify(boardState))
-    
-    
-    
-    function dropToken(turn, col){
-        let tempBoard = boardState.slice()
-        let tokenLocation
-        for(let i = 34 ; i >= 0 ; i--){
-            if(tempBoard[i].col == col && tempBoard[i].color === "white"){
-                tempBoard[i].color = turn ? "red" : "black"
-                console.log(tempBoard[i].id)
-                setTurnState((prevState)=>!prevState)
-                break;
-            }
-        }
-        checkWin()
-        localStorage.setItem("board", JSON.stringify(tempBoard))
-        setBoardState(tempBoard);
-    }
 
     
     let displaySpaces = boardState.map((item)=>{

@@ -38,6 +38,21 @@ export default class GameLogic{
         return this.board;
     }
 
+    dropToken(turn, col){
+        let tempBoard = this.board.slice()
+        for(let i = 34 ; i >= 0 ; i--){
+            if(tempBoard[i].col == col && tempBoard[i].color === "white"){
+                tempBoard[i].color = turn ? "red" : "black"
+                console.log(tempBoard[i].id)
+                setTurnState((prevState)=>!prevState)
+                break;
+            }
+        }
+        checkWin()
+        localStorage.setItem("board", JSON.stringify(tempBoard))
+        setBoardState(tempBoard);
+    }
+
     checkWin(){
         for(let i = 34 ; i >= 0 ; i--){
             if (this.board[i].color != "white"){
