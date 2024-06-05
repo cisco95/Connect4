@@ -2,7 +2,7 @@ export default class GameLogic{
     constructor(gameInfo){
         this.score = gameInfo.score
         this.board = gameInfo.board
-        this.turn = gameInfo.turn
+        this.redTurn = gameInfo.turn
     }
 
     getScore(){
@@ -14,7 +14,10 @@ export default class GameLogic{
     }
 
     getTurn(){
-        return this.turn;
+        return this.redTurn;
+    }
+    changeTurn() {
+        this.redTurn = !this.redTurn; 
     }
 
     increaseScore(color){
@@ -38,40 +41,43 @@ export default class GameLogic{
         return this.board;
     }
 
-    dropToken(turn, col){
+    dropToken(col){
         let tempBoard = this.board.slice()
         for(let i = 34 ; i >= 0 ; i--){
-            if(tempBoard[i].col == col && tempBoard[i].color === "white"){
-                tempBoard[i].color = turn ? "red" : "black"
-                console.log(tempBoard[i].id)
-                setTurnState((prevState)=>!prevState)
+            if(col === tempBoard[i].col && tempBoard[i].color === "white"){
+                console.log(i)
+                console.log(col)
+                tempBoard[i].color = this.redTurn ? "red" : "black"
+                this.changeTurn()
                 break;
             }
         }
-        checkWin()
-        localStorage.setItem("board", JSON.stringify(tempBoard))
-        setBoardState(tempBoard);
+        if (this.checkWin()){
+            console.log("WIN!");
+            console.log(this.getScore());
+        }
+        this.board = tempBoard;
     }
 
     checkWin(){
         for(let i = 34 ; i >= 0 ; i--){
             if (this.board[i].color != "white"){
-                if (checkDiagLeft(i)){
+                if (this.checkDiagLeft(i)){
                     console.log(`${this.board[i].color} Wins!`)
                     this.board[i].color =="red" ? this.increaseScore("red")
                     : this.increaseScore("black") 
                     return true;
-                } else if (checkHorizontal(i)){
+                } else if (this.checkHorizontal(i)){
                     console.log(`${this.board[i].color} Wins!`)
                     this.board[i].color =="red" ? this.increaseScore("red")
                     : this.increaseScore("black") 
                     return true;
-                } else if (checkDiagRight(i)){
+                } else if (this.checkDiagRight(i)){
                     console.log(`${this.board[i].color} Wins!`)
                     this.board[i].color =="red" ? this.increaseScore("red")
                     : this.increaseScore("black") 
                     return true;
-                } else if (checkVert(i)){
+                } else if (this.checkVert(i)){
                     console.log(`${this.board[i].color} Wins!`)
                     this.board[i].color =="red" ? this.increaseScore("red")
                     : this.increaseScore("black") 
@@ -131,7 +137,10 @@ export default class GameLogic{
     
     printBoardToConsole(){
         this.board.reduce((prevVal, item) =>{
-            prevVal.push(item.color === "white" ? "⚪" : item.color === "red" ? "red" : "⚫");
+            prevVal.push(item.color === "white" 
+            ? "⚪" 
+            : item.color === "red"
+            ? "🔴" :"⚫");
             if (prevVal.length == 7){
                 console.log(...prevVal)
                 prevVal = []
@@ -146,16 +155,29 @@ export default class GameLogic{
 
 let game = {
     score: {
-        black: 2,
-        red: 4
+        black: 0,
+        red: 0
     }, 
-    board: ["white", "white", "white", "white", "red", "white", "white", "white", "white", "white", "white", "red", "white", "white", "white", "white", "white", "white", "red", "white", "white", "white", "white", "white", "white", "red", "white", "white", "white", "white", "white", "white", "white", "white", "white"],
-    turn: "red"
+    board: [],
+    color: "red",
+    turn: true
 }
 const newGame = new GameLogic(game);
-// newGame.resetBoard()
-// console.log(newGame.getTurn())
+newGame.resetBoard()
+console.log(newGame.getTurn())
+newGame.printBoardToConsole()
+
+newGame.dropToken(3)
 newGame.printBoardToConsole()
 // console.log(newGame.getScore())
 // newGame.increaseScore("black")
 // console.log(newGame.getScore())
+for (let i = 0; i < 14; i++){
+    newGame.dropToken(i%5);
+    newGame.printBoardToConsole()
+}
+
+newGame.dropToken(5)
+newGame.printBoardToConsole()
+newGame.dropToken(5)
+newGame.printBoardToConsole()
